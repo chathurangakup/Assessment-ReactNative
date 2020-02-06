@@ -30,7 +30,7 @@ const App: () => React$Node = () => {
       <StatusBar barStyle="dark-content" />
       <SafeAreaView>
         <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
+        
           style={styles.scrollView}>
           <Header />
           {global.HermesInternal == null ? null : (
