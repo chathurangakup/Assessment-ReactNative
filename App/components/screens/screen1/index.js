@@ -185,7 +185,16 @@ class Screen1 extends Component {
     }
 
     
-    btnPress(){
+    btnPress=async(title,username,body)=>{
+        try {
+          await AsyncStorage.setItem('title',title);
+          await AsyncStorage.setItem('username',username);
+          await AsyncStorage.setItem('body',body);
+          this.props.navigation.navigate('Screen2')
+        } catch (error) {
+          console.log(error)
+        }
+    
 
     }
 
@@ -271,10 +280,7 @@ class Screen1 extends Component {
         );
       }
       
-      
-
-
-      
+    
       return (
         <SafeAreaView style={styles.wrapper}>
            <ScrollView
@@ -297,7 +303,7 @@ class Screen1 extends Component {
                             title = {item.title } 
                              name = {item.name } 
                             
-                             onSelect={()=>this.btnPress()}
+                             onSelect={()=>this.btnPress(item.title,item.username,item.body)}
                        />}
                 /> 
 

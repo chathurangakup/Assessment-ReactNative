@@ -19,7 +19,7 @@ const Navigator = createStackNavigator({
     Screen2: {
         screen: Screen2,
         navigationOptions:{
-            header:()=> null,
+           
         }
         
     },
