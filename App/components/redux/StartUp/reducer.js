@@ -3,10 +3,12 @@ import { Map } from "immutable";
 import startUpActions from "./actions";
 
 
-
+const postData=undefined
+const usersData=undefined
 
 const initState = new Map({
-
+postData,
+usersData
 
 
 });
@@ -14,7 +16,45 @@ const initState = new Map({
 export default function startUpReducer(state = initState, action) {
   switch (action.type) {
 
-    
+    case startUpActions.USERS_DATA:
+      return{
+        ...state,
+        loading:true,
+       
+      }
+    case startUpActions.USERS_DATA_RESULT:
+        return{
+          loading:false,
+          usersData:action.result
+
+        }
+  
+    case startUpActions.USERS_DATA_ERROR:
+        return{
+            loading:false, 
+           
+       }
+
+
+    case startUpActions.POST_DATA:
+      return{
+        ...state,
+        loading:true,
+       
+      }
+    case startUpActions.POST_DATA_RESULT:
+        return{
+          loading:false,
+          postData:action.result
+
+        }
+  
+    case startUpActions.POST_DATA_ERROR:
+        return{
+            loading:false, 
+           
+       }
+
         
 
 
@@ -22,12 +62,10 @@ export default function startUpReducer(state = initState, action) {
         case startUpActions.CLEAR_PROPS:
            return{
                ...state,
-               errorDescription:undefined,
-               data:undefined,
+              
                loading:false,
-               jwttoken:undefined,
-               errormessageLogin:undefined,
-               isAvailableUser:true
+                postData:undefined,
+                usersData:undefined
                  
           }
 
