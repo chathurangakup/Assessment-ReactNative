@@ -5,16 +5,40 @@ import startUpActions from "./actions";
 
 const postData=undefined
 const usersData=undefined
+const imageData=undefined
 
 const initState = new Map({
 postData,
-usersData
+usersData,
+imageData
 
 
 });
 
 export default function startUpReducer(state = initState, action) {
   switch (action.type) {
+
+    case startUpActions.IMAGE_DATA:
+      return{
+        ...state,
+        loading:true,
+       
+      }
+    case startUpActions.IMAGE_DATA_RESULT:
+        return{
+          loading:false,
+          imageData:action.result
+
+        }
+  
+    case startUpActions.IMAGE_DATA_ERROR:
+        return{
+            loading:false, 
+           
+       }
+
+
+
 
     case startUpActions.USERS_DATA:
       return{
@@ -62,10 +86,10 @@ export default function startUpReducer(state = initState, action) {
         case startUpActions.CLEAR_PROPS:
            return{
                ...state,
-              
                loading:false,
                 postData:undefined,
-                usersData:undefined
+                usersData:undefined,
+                imageData:undefined
                  
           }
 

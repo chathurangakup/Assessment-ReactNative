@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 
 import Screen1 from '../screens/screen1';
 import Screen2 from '../screens/screen2';
-
+import Screen3 from '../screens/screen3';
 
 const Navigator = createStackNavigator({
     Screen1: {
@@ -18,6 +18,13 @@ const Navigator = createStackNavigator({
     },
     Screen2: {
         screen: Screen2,
+        navigationOptions:{
+           
+        }
+        
+    },
+    Screen3: {
+        screen: Screen3,
         navigationOptions:{
            
         }

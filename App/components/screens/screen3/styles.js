@@ -27,8 +27,8 @@ export default EStyleSheet.create({
   imageThumbnail: {
     justifyContent: 'center',
     alignItems: 'center',
-    height:Dimensions.get('window').width /3 ,
-    width:Dimensions.get('window').width /3
+    height:Dimensions.get('window').width ,
+    width:Dimensions.get('window').width
   },
   
 });

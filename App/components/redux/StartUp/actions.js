@@ -13,7 +13,13 @@ const actions = {
   USERS_DATA_RESULT:"USERS_DATA_RESULT",
   USERS_DATA_ERROR:"USERS_DATA_ERROR",
 
+  IMAGE_DATA:"IMAGE_DATA",
+  IMAGE_DATA_RESULT:"IMAGE_DATA_RESULT",
+  IMAGE_DATA_ERROR:"IMAGE_DATA_ERROR",
 
+  getImageData:()=>({
+    type: actions.IMAGE_DATA,
+  }),
 
   getUsersData:()=>({
     type: actions.USERS_DATA,
