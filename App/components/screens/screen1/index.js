@@ -211,10 +211,10 @@ class Screen1 extends Component {
           }}
         >
             <View style={{flex:1}}>
-               <Text style={{  textShadowColor: 'black'}}>TITLE</Text>
+               <Text style={{  textShadowColor: 'black',paddingLeft:30}}>TITLE</Text>
             </View>
             <View style={{flex:1}}>
-               <Text style={{  textShadowColor: 'black'}}>NAME</Text>
+               <Text style={{  textShadowColor: 'black',paddingLeft:30}}>NAME</Text>
             </View>
            
            
@@ -251,7 +251,7 @@ class Screen1 extends Component {
 
       function Item({ id, title,name,trasferAmo, onSelect }) {
         return (
-            <TouchableOpacity onPress={() => onSelect(id)}>
+            <TouchableOpacity onPress={() => onSelect(id)} testID={'tap_me'}>
                  <View 
             style={{
              flexDirection:'row',

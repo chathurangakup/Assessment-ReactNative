@@ -3,9 +3,22 @@ describe('Example', () => {
     await device.reloadReactNative();
   });
 
-  it('display no date message', async () => {
-    await expect(element(by.id('no data'))).toBeVisible();
+  test('Title in top', async () => {
+    await expect(element(by.text('TITLE'))).toBeVisible();
+  
+   
+   
   });
+
+
+
+  test('Tap on list items', async () => {
+   
+    await  element(by.id('tap_me')).tap();
+   
+   
+  });
+
 
   // it('should show hello screen after tap', async () => {
   //   await element(by.id('hello_button')).tap();

@@ -1,6 +1,5 @@
 import React from 'react'
-import {createAppContainer
-} from 'react-navigation';
+import {createAppContainer} from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack'
 import PropsTypes from 'prop-types';
 import { connect } from 'react-redux';

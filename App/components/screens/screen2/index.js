@@ -12,6 +12,7 @@ import {
 import { PropTypes } from 'prop-types';
 import { connect } from 'react-redux';
 import AsyncStorage from '@react-native-community/async-storage';
+import NetInfo from "@react-native-community/netinfo";
 
 import styles from './styles';
 import StartUpActions from '../../redux/StartUp/actions';
@@ -44,8 +45,20 @@ class Screen2 extends Component {
 
   
     componentDidMount(){
-      this.getData();
+     
+      NetInfo.fetch().then(state => {
+        if(state.isConnected==true){
+          this.getData();
+        }else{
+        this.getDataWithoutInternet()
+          alert('No internet')
+      
+        }
+     });
     }
+
+    
+
 
 
 
@@ -65,6 +78,22 @@ class Screen2 extends Component {
 
  }
   
+
+ getDataWithoutInternet = async() => {
+  try {
+    const title = await AsyncStorage.getItem('title')
+    const body = await AsyncStorage.getItem('body')
+    const username = await AsyncStorage.getItem('username')
+    this.setState({titleState:title})
+    this.setState({bodyState:body})
+    this.setState({usernameState:username})
+   
+    
+  } catch(e) {
+    // error reading value
+  }
+
+}
    
     btnPress=async(thumbnailUrl)=>{
 
@@ -117,11 +146,11 @@ class Screen2 extends Component {
         <SafeAreaView style={styles.wrapper}>
   
                 <View style={{padding:10}}/>
-                <Text>Title</Text>
-                <Text>{this.state.titleState}</Text>
+                <Text style={{paddingLeft:10}}>Title</Text>
+                <Text style={{paddingLeft:10}}>{this.state.titleState}</Text>
                 <View style={{padding:10}}/>
-                <Text>Body</Text>
-                <Text>{this.state.bodyState}</Text>
+                <Text style={{paddingLeft:10}}>Body</Text>
+                <Text style={{paddingLeft:10,paddingBottom:5}}>{this.state.bodyState}</Text>
                 {this.props.loading && <Loading navigation={this.props.navigation} animating={true} />}
   
                 <FlatList
